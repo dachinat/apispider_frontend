@@ -10,7 +10,9 @@
   APISpider frontend application built with Preact, TypeScript, and Vite
 </h3>
 
-This repository contains the **frontend application for APISpider**, a lightweight and developer-focused API client.
+This repository contains the **frontend application for APISpider**, a lightweight and developer-focused API client. You can also check out the sibling repositories:
+
+[APISpider backend](https://github.com/dachinat/apispider_backend)
 
 ---
 
@@ -31,7 +33,7 @@ VITE_API_BASE_URL=http://localhost:8081 npm run dev
 ```
 
 Starts the dev server at  
-👉 http://localhost:5173  
+http://localhost:5173  
 with the API base URL set to `http://localhost:8081`.
 
 ### Production Build
@@ -50,7 +52,7 @@ npm run preview
 ```
 
 Serves the production build locally at  
-👉 http://localhost:4173
+http://localhost:4173
 
 ---
 
