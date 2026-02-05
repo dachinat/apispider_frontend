@@ -82,13 +82,13 @@ export default function Footer() {
       </div>
       <nav className="flex items-center gap-4">
         <GitHubButton
-          href="https://github.com/dachinat/apispider"
+          href="https://github.com/dachinat/apispider_frontend"
           data-color-scheme={
             currentTheme === "apispider-light" ? "light" : "dark"
           }
           data-size="large"
           data-show-count="true"
-          aria-label="Star dachinat/apispider on GitHub"
+          aria-label="Star dachinat/apispider_frontend on GitHub"
         >
           Star on GitHub
         </GitHubButton>
