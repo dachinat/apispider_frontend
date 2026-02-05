@@ -231,7 +231,7 @@ export default function Collections({
                                         <input
                                             ref={inputRef}
                                             type="text"
-                                            className="input input-ghost input-xs h-7 flex-1 font-medium bg-base-100/50 border-primary/30"
+                                            className="input input-xs h-7 flex-1 font-medium bg-base-100 text-base-content border-primary/30 px-2 rounded focus:outline-none focus:border-primary"
                                             value={editingName}
                                             onClick={(e) => e.stopPropagation()}
                                             onInput={(e) => setEditingName((e.target as HTMLInputElement).value)}
@@ -316,7 +316,7 @@ export default function Collections({
                                                 <input
                                                     ref={requestInputRef}
                                                     type="text"
-                                                    className="input input-ghost input-xs h-6 flex-1 font-medium bg-base-100/50 border-primary/30 text-xs"
+                                                    className="input input-xs h-6 flex-1 font-medium bg-base-100 text-base-content border-primary/30 text-xs px-2 rounded focus:outline-none focus:border-primary"
                                                     value={editingName}
                                                     onClick={(e) => e.stopPropagation()}
                                                     onInput={(e) => setEditingName((e.target as HTMLInputElement).value)}

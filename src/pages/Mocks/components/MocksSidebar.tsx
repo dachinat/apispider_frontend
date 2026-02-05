@@ -58,18 +58,17 @@ export default function MocksSidebar({
               <div key={mock.id} className="relative group/container">
                 <div
                   onClick={() => onSelectMock(mock)}
-                  className={`w-full p-3.5 text-left transition-all duration-200 cursor-pointer flex items-center justify-between rounded-lg group ${
-                    currentMockId === mock.id
-                      ? "bg-primary text-primary-content shadow-sm"
-                      : "hover:bg-base-200 text-base-content/80 hover:text-base-content"
-                  }`}
+                  className={`w-full p-3.5 text-left transition-all duration-200 cursor-pointer flex items-center justify-between rounded-lg group ${currentMockId === mock.id
+                    ? "bg-primary text-primary-content shadow-sm"
+                    : "hover:bg-base-200 text-base-content/80 hover:text-base-content"
+                    }`}
                 >
                   <div className="flex-1 min-w-0 pr-8">
                     {editingMockId === mock.id ? (
                       <input
                         ref={inputRef}
                         type="text"
-                        className={`input input-ghost input-xs w-full font-bold p-0 h-auto focus:outline-none`}
+                        className={`input input-xs w-full font-bold h-7 focus:outline-none border-primary/30 focus:border-primary ${currentMockId === mock.id ? "bg-black/20 text-white" : "bg-base-100 text-base-content"} px-2 rounded`}
                         value={editingName}
                         onClick={(e) => e.stopPropagation()}
                         onInput={(e: any) => setEditingName(e.target.value)}

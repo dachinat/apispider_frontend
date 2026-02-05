@@ -55,18 +55,17 @@ export default function ApiDocsSidebar({
               <div key={doc.id} className="relative group">
                 <div
                   onClick={() => onSelectDoc(doc)}
-                  className={`w-full p-3.5 text-left transition-all duration-200 cursor-pointer flex items-center justify-between group/item relative overflow-hidden ${
-                    currentDocId === doc.id
-                      ? "bg-primary text-primary-content shadow-sm"
-                      : "hover:bg-base-200 text-base-content/80 hover:text-base-content"
-                  }`}
+                  className={`w-full p-3.5 text-left transition-all duration-200 cursor-pointer flex items-center justify-between group/item relative overflow-hidden ${currentDocId === doc.id
+                    ? "bg-primary text-primary-content shadow-sm"
+                    : "hover:bg-base-200 text-base-content/80 hover:text-base-content"
+                    }`}
                 >
                   <div className="flex-1 min-w-0 pr-8">
                     {editingDocId === doc.id ? (
                       <input
                         ref={inputRef}
                         type="text"
-                        className={`input input-ghost input-xs w-full font-bold p-0 h-auto focus:outline-none`}
+                        className={`input input-xs w-full font-bold h-7 focus:outline-none border-primary/30 focus:border-primary ${currentDocId === doc.id ? "bg-black/20 text-white" : "bg-base-100 text-base-content"} px-2 rounded`}
                         value={editingName}
                         onClick={(e) => e.stopPropagation()}
                         onInput={(e: any) => onInputChange(e.target.value)}
