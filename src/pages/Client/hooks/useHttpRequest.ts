@@ -149,16 +149,44 @@ export const useHttpRequest = (
                 );
             }
 
+            const formData = await Promise.all((currentTab.formData || []).map(async (item) => {
+                const key = replaceVariables(item.key);
+                const type = item.type || 'text';
+                let value = replaceVariables(item.value);
+
+                if (type === 'file' && item.file instanceof File) {
+                    const reader = new FileReader();
+                    const base64Promise = new Promise<string>((resolve, reject) => {
+                        reader.onload = () => {
+                            const base64String = (reader.result as string).split(',')[1];
+                            resolve(base64String);
+                        };
+                        reader.onerror = reject;
+                    });
+                    reader.readAsDataURL(item.file);
+                    value = await base64Promise;
+
+                    return {
+                        ...item,
+                        key,
+                        value,
+                        fileName: item.file.name
+                    };
+                }
+
+                return {
+                    ...item,
+                    key,
+                    value
+                };
+            }));
+
             const requestPayload = {
                 method,
                 url: finalUrl,
                 headers: finalHeaders,
                 body: preparedBody,
-                formData: currentTab.bodyType === 'form-data' ? (currentTab.formData || []).map(item => ({
-                    ...item,
-                    key: replaceVariables(item.key),
-                    value: replaceVariables(item.value)
-                })) : [],
+                formData,
                 authType: currentTab.authType,
                 authData: currentTab.authData ? Object.entries(currentTab.authData).reduce((acc, [k, v]) => ({
                     ...acc,
