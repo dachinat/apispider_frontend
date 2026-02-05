@@ -13,6 +13,7 @@
 This repository contains the **frontend application for APISpider**, a lightweight and developer-focused API client. You can also check out the sibling repositories:
 
 [APISpider backend](https://github.com/dachinat/apispider_backend)
+[APISpider agent](https://github.com/dachinat/apispider_agent)
 
 ---
 
