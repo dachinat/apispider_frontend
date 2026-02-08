@@ -2,6 +2,7 @@ import { useAuth } from "../hooks/useAuth";
 import Footer from "./Footer";
 import Branding from "./Branding";
 import { ComponentChildren } from "preact";
+import { useLocation } from "preact-iso";
 
 interface LayoutProps {
   children: ComponentChildren;
@@ -15,16 +16,17 @@ export default function Layout({
   activitySidebar = null,
 }: LayoutProps) {
   const { isAuthenticated } = useAuth();
-  const location = typeof window !== "undefined" ? window.location.pathname : "";
+
+  const { path } = useLocation();
 
   const isAuthPage =
-    location.startsWith("/sign-in") ||
-    location.startsWith("/sign-up") ||
-    location.startsWith("/forgot-password") ||
-    location.startsWith("/reset-password") ||
-    location.startsWith("/confirm-email") ||
-    location.startsWith("/resend-confirmation") ||
-    location.startsWith("/accept-invite");
+    path.startsWith("/sign-in") ||
+    path.startsWith("/sign-up") ||
+    path.startsWith("/forgot-password") ||
+    path.startsWith("/reset-password") ||
+    path.startsWith("/confirm-email") ||
+    path.startsWith("/resend-confirmation") ||
+    path.startsWith("/accept-invite");
 
   const showWelcome = !isAuthenticated && isAuthPage;
 
@@ -54,7 +56,6 @@ export default function Layout({
                 powerful, intuitive interface designed for modern engineering
                 teams.
               </p>
-
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
                   <div className="mt-1 flex-none text-primary">
@@ -77,7 +78,8 @@ export default function Layout({
                       Universal API client
                     </h3>
                     <p className="text-sm text-base-content/50">
-                      Debug REST, GraphQL, and WebSockets in one unified interface.
+                      Debug REST, GraphQL, and WebSockets in one unified
+                      interface.
                     </p>
                   </div>
                 </div>
@@ -142,7 +144,14 @@ export default function Layout({
               <div className="flex items-center gap-4 text-sm font-medium text-base-content/40">
                 <span>Free forever for individuals</span>
                 <span className="w-1 h-1 rounded-full bg-base-300"></span>
-                <span><a href="https://github.com/dachinat/apispider_frontend" target="_blank">Open Source</a></span>
+                <span>
+                  <a
+                    href="https://github.com/dachinat/apispider_frontend"
+                    target="_blank"
+                  >
+                    Open Source
+                  </a>
+                </span>
               </div>
             </div>
           </div>
