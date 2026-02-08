@@ -1,19 +1,15 @@
 import { useState, useEffect } from "preact/hooks";
-import { useAuth } from "../hooks/useAuth";
+
 import DownloadAgentModal from "./DownloadAgentModal.jsx";
 import GitHubButton from "react-github-btn";
 
+import { useTheme } from "../hooks/useTheme";
+
 export default function Footer() {
-  const { user } = useAuth();
+  const { theme } = useTheme();
   const [accepted, setAccepted] = useState<boolean>(true);
   const [isDownloadModalOpen, setIsDownloadModalOpen] =
     useState<boolean>(false);
-
-  let currentTheme = "apispider-light";
-  if (typeof window !== "undefined") {
-    currentTheme =
-      user?.theme || localStorage.getItem("theme") || "apispider-light";
-  }
 
   useEffect(() => {
     const isAccepted = localStorage.getItem("cookie-consent-accepted");
@@ -84,7 +80,7 @@ export default function Footer() {
         <GitHubButton
           href="https://github.com/dachinat/apispider_frontend"
           data-color-scheme={
-            currentTheme === "apispider-light" ? "light" : "dark"
+            theme === "apispider-light" ? "light" : "dark"
           }
           data-size="large"
           data-show-count="true"
@@ -103,7 +99,7 @@ export default function Footer() {
               height="31"
               style={{ border: "0px", height: "31px" }}
               src={
-                currentTheme === "apispider-light"
+                theme === "apispider-light"
                   ? "https://storage.ko-fi.com/cdn/kofi1.png?v=6"
                   : "https://storage.ko-fi.com/cdn/kofi3.png?v=6"
               }

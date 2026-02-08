@@ -1,49 +1,31 @@
-import { useState, useEffect } from "preact/hooks";
+import { useEffect } from "preact/hooks";
 import { useAuth } from "../hooks/useAuth.js";
+import { useTheme } from "../hooks/useTheme";
 
 type Theme = "apispider-light" | "apispider-dark";
 
 export default function DarkModeToggle() {
-  const { user, isAuthenticated, updateTheme } = useAuth();
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const { isAuthenticated, updateTheme } = useAuth();
+  const { theme } = useTheme();
 
-  const getInitialTheme = (): string => {
-    if (user?.theme) return user.theme;
-    if (typeof window !== "undefined") {
-      const savedTheme = localStorage.getItem("theme");
-      if (savedTheme) return savedTheme;
-
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        return "apispider-dark";
-      }
-    }
-    return "apispider-light";
-  };
-
-  const currentTheme: string = getInitialTheme();
+  const isDark = theme === "apispider-dark";
 
   const showToggle =
-    !isAuthenticated ||
-    ["apispider-light", "apispider-dark"].includes(currentTheme);
+    !isAuthenticated || ["apispider-light", "apispider-dark"].includes(theme);
 
   useEffect(() => {
-    const initialIsDark = currentTheme === "apispider-dark";
-    setIsDark(initialIsDark);
-    document.documentElement.setAttribute("data-theme", currentTheme);
-
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
     const handleSystemThemeChange = async (
-      e: MediaQueryListEvent,
+      e: MediaQueryListEvent
     ): Promise<void> => {
-      if (["apispider-light", "apispider-dark"].includes(currentTheme)) {
+      if (["apispider-light", "apispider-dark"].includes(theme)) {
         const newIsDark = e.matches;
         const newTheme: Theme = newIsDark
           ? "apispider-dark"
           : "apispider-light";
 
-        if (newTheme !== currentTheme) {
-          setIsDark(newIsDark);
+        if (newTheme !== theme) {
           document.documentElement.setAttribute("data-theme", newTheme);
           localStorage.setItem("theme", newTheme);
 
@@ -57,13 +39,26 @@ export default function DarkModeToggle() {
     mediaQuery.addEventListener("change", handleSystemThemeChange);
     return () =>
       mediaQuery.removeEventListener("change", handleSystemThemeChange);
-  }, [currentTheme, isAuthenticated, updateTheme]);
+  }, [theme, isAuthenticated, updateTheme]);
+
+
+  useEffect(() => {
+    if (!document.documentElement.getAttribute("data-theme")) {
+      const saved = localStorage.getItem("theme");
+      if (saved) {
+        document.documentElement.setAttribute("data-theme", saved);
+      } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.setAttribute("data-theme", "apispider-dark");
+      } else {
+        document.documentElement.setAttribute("data-theme", "apispider-light");
+      }
+    }
+  }, []);
 
   const toggleTheme = async (): Promise<void> => {
-    const newIsDark = !isDark;
-    const newTheme: Theme = newIsDark ? "apispider-dark" : "apispider-light";
+    const newTheme: Theme =
+      theme === "apispider-light" ? "apispider-dark" : "apispider-light";
 
-    setIsDark(newIsDark);
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
 
