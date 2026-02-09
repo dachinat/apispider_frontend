@@ -39,6 +39,6 @@ export default defineConfig({
     }),
   ],
   server: {
-    allowedHosts: ["apispider.com"],
+    allowedHosts: ["apispider.com", "www.apispider.com"],
   },
 });

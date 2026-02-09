@@ -2,7 +2,8 @@ import { useState, useEffect } from "preact/hooks";
 
 import DownloadAgentModal from "./DownloadAgentModal.jsx";
 import GitHubButton from "react-github-btn";
-
+import { KoFiButton } from "react-kofi";
+import "react-kofi/dist/styles.css";
 import { useTheme } from "../hooks/useTheme";
 
 export default function Footer() {
@@ -90,22 +91,12 @@ export default function Footer() {
         </GitHubButton>
 
         <div style="margin-bottom: 4px;">
-          <a
-            href="https://ko-fi.com/L4L01T5K7F"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              height="31"
-              style={{ border: "0px", height: "31px" }}
-              src={
-                theme === "apispider-light"
-                  ? "https://storage.ko-fi.com/cdn/kofi1.png?v=6"
-                  : "https://storage.ko-fi.com/cdn/kofi3.png?v=6"
-              }
-              alt="Buy Me a Coffee at ko-fi.com"
-            />
-          </a>
+          <KoFiButton
+            color="#3d77d7"
+            id="dachin"
+            label="Sponsor A Project"
+            radius="8px"
+          />
         </div>
       </nav>
       <DownloadAgentModal
