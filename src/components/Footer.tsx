@@ -76,6 +76,14 @@ export default function Footer() {
         </p>
       </div>
       <nav className="flex items-center gap-4">
+
+        <a href="https://paypal.me/dachina">
+          <img
+            src="/paypal.png"
+            alt="Sponsor APISpider project with PayPal"
+          />
+        </a>
+
         <GitHubButton
           href="https://github.com/dachinat/apispider_frontend"
           data-color-scheme={
