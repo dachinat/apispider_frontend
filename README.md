@@ -1,4 +1,4 @@
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/L4L01T5K7F)
+[![Sponsor with PayPal](https://apispider.com/paypal.png)](https://paypal.me/dachina)
 
 # APISpider – Frontend
 
@@ -13,6 +13,7 @@
 This repository contains the **frontend application for APISpider**, a lightweight and developer-focused API client. You can also check out the sibling repositories:
 
 [APISpider backend](https://github.com/dachinat/apispider_backend)
+
 [APISpider agent](https://github.com/dachinat/apispider_agent)
 
 ---
