@@ -32,7 +32,6 @@
 		"prettier": "^3.8.1",
 		"react-easy-crop": "^5.5.6",
 		"react-github-btn": "^1.4.0",
-		"react-kofi": "^0.0.2",
 		"socket.io-client": "^4.8.3",
 		"tailwindcss": "^4.1.18"
 	},

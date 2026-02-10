@@ -2,8 +2,6 @@ import { useState, useEffect } from "preact/hooks";
 
 import DownloadAgentModal from "./DownloadAgentModal.jsx";
 import GitHubButton from "react-github-btn";
-import { KoFiButton } from "react-kofi";
-import "react-kofi/dist/styles.css";
 import { useTheme } from "../hooks/useTheme";
 
 export default function Footer() {
@@ -89,15 +87,6 @@ export default function Footer() {
         >
           Star on GitHub
         </GitHubButton>
-
-        <div style="margin-bottom: 4px;">
-          <KoFiButton
-            color="#3d77d7"
-            id="dachin"
-            label="Sponsor A Project"
-            radius="8px"
-          />
-        </div>
       </nav>
       <DownloadAgentModal
         isOpen={isDownloadModalOpen}
