@@ -3,6 +3,8 @@ import { useState, useEffect } from "preact/hooks";
 import DownloadAgentModal from "./DownloadAgentModal.jsx";
 import GitHubButton from "react-github-btn";
 import { useTheme } from "../hooks/useTheme";
+import { KoFiButton } from "react-kofi";
+import "react-kofi/dist/styles.css";
 
 export default function Footer() {
   const { theme } = useTheme();
@@ -76,25 +78,28 @@ export default function Footer() {
         </p>
       </div>
       <nav className="flex items-center gap-4">
-
-        <a href="https://paypal.me/dachina">
-          <img
-            src="/paypal.png"
-            alt="Sponsor APISpider project with PayPal"
-          />
-        </a>
+        {/*<a href="https://paypal.me/dachina">
+          <img src="/paypal.png" alt="Sponsor APISpider project with PayPal" />
+        </a>*/}
 
         <GitHubButton
           href="https://github.com/dachinat/apispider_frontend"
-          data-color-scheme={
-            theme === "apispider-light" ? "light" : "dark"
-          }
+          data-color-scheme={theme === "apispider-light" ? "light" : "dark"}
           data-size="large"
           data-show-count="true"
           aria-label="Star dachinat/apispider_frontend on GitHub"
         >
           Star on GitHub
         </GitHubButton>
+
+        <div style="margin-bottom: 4px;">
+          <KoFiButton
+            color="#3d77d7"
+            id="dachin"
+            label="Sponsor This Project"
+            radius="8px"
+          />
+        </div>
       </nav>
       <DownloadAgentModal
         isOpen={isDownloadModalOpen}
