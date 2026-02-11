@@ -1178,7 +1178,6 @@
 }
 
 @keyframes sway {
-
   0%,
   100% {
     transform: rotate(-5deg);
@@ -1251,7 +1250,8 @@
 
 /* Custom shadow for premium look */
 .activity-sidebar {
-  box-shadow: inset -1px 0 0 0 color-mix(in oklch, var(--color-base-content) 5%, transparent);
+  box-shadow: inset -1px 0 0 0
+    color-mix(in oklch, var(--color-base-content) 5%, transparent);
 }
 
 /* Animations Utility */

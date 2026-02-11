@@ -4,7 +4,7 @@ import DownloadAgentModal from "./DownloadAgentModal.jsx";
 import GitHubButton from "react-github-btn";
 import { useTheme } from "../hooks/useTheme";
 import { KoFiButton } from "react-kofi";
-import "react-kofi/dist/styles.css";
+import "../kofi.css";
 
 export default function Footer() {
   const { theme } = useTheme();

@@ -1,0 +1,131 @@
+.animate-\[kofi-wiggle_3s_infinite\] {
+  animation: kofi-wiggle 3s infinite;
+}
+
+img.kofiimg {
+  content: url(https://ko-fi.com/img/cup-border.png);
+  display: initial;
+  height: 13px;
+  margin: 0 2px 0 0;
+  width: 20px;
+}
+
+.kofiimg:after,
+img.kofiimg {
+  border: none;
+  padding-bottom: 0;
+  padding-top: 0;
+  vertical-align: middle;
+}
+
+.kofiimg:after {
+  content: url(https://ko-fi.com/img/whitelogo.svg);
+  height: 25px;
+  margin: 0 6px 4px 0;
+}
+
+.btn-container {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+span.kofitext {
+  letter-spacing: -0.15px;
+  line-height: 33px;
+  padding: 0;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(34, 34, 34, 0.05);
+  vertical-align: middle;
+}
+
+.kofitext a,
+.kofitext a:hover,
+a.kofi-button,
+span.kofitext {
+  color: #fff;
+  text-decoration: none;
+}
+
+a.kofi-button {
+  background-color: #29abe0;
+  border: 0 #fff;
+  border-radius: 12px;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: inline-block;
+  font-family:
+    Quicksand,
+    Helvetica,
+    Century Gothic,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: unset;
+  overflow-wrap: break-word;
+  padding: 2px 12px;
+  text-align: center;
+  text-shadow: none;
+  vertical-align: middle;
+}
+
+a.kofi-button:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+a.kofi-button:hover {
+  opacity: 0.85;
+}
+
+a.kofi-button:active,
+a.kofi-button:hover {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.kofitext img.kofiimg {
+  animation: kofi-wiggle 3s infinite;
+  display: initial;
+  height: auto;
+  margin-bottom: 2px;
+  margin-right: 6px;
+  width: 22px;
+}
+
+@keyframes kofi-wiggle {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+
+  60% {
+    transform: rotate(0) scale(1);
+  }
+
+  75% {
+    transform: rotate(0) scale(1.12);
+  }
+
+  80% {
+    transform: rotate(0) scale(1.1);
+  }
+
+  84% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+
+  88% {
+    transform: rotate(10deg) scale(1.1);
+  }
+
+  92% {
+    transform: rotate(-10deg) scale(1.1);
+  }
+
+  96% {
+    transform: rotate(10deg) scale(1.1);
+  }
+
+  to {
+    transform: rotate(0) scale(1);
+  }
+}
